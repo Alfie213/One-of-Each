@@ -12,9 +12,8 @@ public class FruitSpawner : MonoBehaviour
     [SerializeField] private GameObject _spawnParent;
 
     [Header("Limits")]
-    private int _leftEdge, _rightEdge;
-    [SerializeField] private GameObject _leftBarrier;
-    [SerializeField] private GameObject _rightBarrier;
+    [SerializeField] private float _leftPoint;
+    [SerializeField] private float _rightPoint;
 
     private float _currentSpeed;
 
@@ -22,11 +21,6 @@ public class FruitSpawner : MonoBehaviour
     {
         if (_startSpeed == 0f) _startSpeed = 1f;
         _currentSpeed = _startSpeed;
-
-        _leftEdge = (int)_leftBarrier.GetComponent<RectTransform>().rect.width + (int)_fruits[0].GetComponent<RectTransform>().rect.width * 4;
-        _rightEdge = Screen.width - (int)_rightBarrier.GetComponent<RectTransform>().rect.width - (int)_fruits[0].GetComponent<RectTransform>().rect.width * 4;
-        Debug.Log(_leftEdge);
-        Debug.Log(_rightEdge);
     }
 
     private void Start()
@@ -40,8 +34,11 @@ public class FruitSpawner : MonoBehaviour
         {
             Debug.Log("Preparing for spawn");
             GameObject randomFruit = _fruits[Random.Range(0, _fruits.Length)];
-            Debug.Log($"Between {_leftEdge} and {_rightEdge}");
-            Instantiate(randomFruit, new Vector3(Random.Range(_leftEdge, _rightEdge), Screen.height, 0), Quaternion.identity, _spawnParent.transform);
+            Debug.Log($"Between {_leftPoint} and {_rightPoint}");
+            Instantiate(randomFruit, new Vector3(Random.Range(_leftPoint, _rightPoint), 6, 0), Quaternion.identity, _spawnParent.transform);
+            //Instantiate(randomFruit, new Vector3(_leftPoint, 6, 0), Quaternion.identity, _spawnParent.transform);
+            //Instantiate(randomFruit, new Vector3(_rightPoint, 6, 0), Quaternion.identity, _spawnParent.transform);
+
             yield return new WaitForSeconds(1f); // Здесь какой-то коэф выставить
         }
     }
