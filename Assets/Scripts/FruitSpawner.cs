@@ -32,9 +32,9 @@ public class FruitSpawner : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Preparing for spawn");
+            //Debug.Log("Preparing for spawn");
             GameObject randomFruit = _fruits[Random.Range(0, _fruits.Length)];
-            Debug.Log($"Between {_leftPoint} and {_rightPoint}");
+            //Debug.Log($"Between {_leftPoint} and {_rightPoint}");
             Instantiate(randomFruit, new Vector3(Random.Range(_leftPoint, _rightPoint), 6, 0), Quaternion.identity, _spawnParent.transform);
             //Instantiate(randomFruit, new Vector3(_leftPoint, 6, 0), Quaternion.identity, _spawnParent.transform);
             //Instantiate(randomFruit, new Vector3(_rightPoint, 6, 0), Quaternion.identity, _spawnParent.transform);

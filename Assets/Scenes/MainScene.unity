@@ -167,8 +167,9 @@ GameObject:
   m_Component:
   - component: {fileID: 465021588}
   - component: {fileID: 465021587}
+  - component: {fileID: 465021589}
   m_Layer: 0
-  m_Name: FruitSpawner
+  m_Name: Scripts
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -209,6 +210,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &465021589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465021586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e69c0239ecb0b143b08c19d01aa4d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allFruits:
+  - {fileID: 538094594, guid: 512e01c290a83644d9618f7e77ab656a, type: 3}
+  - {fileID: 2010883626, guid: 512e01c290a83644d9618f7e77ab656a, type: 3}
+  - {fileID: 568188542, guid: 512e01c290a83644d9618f7e77ab656a, type: 3}
+  _currentFruits:
+  - {fileID: 1229724225}
+  - {fileID: 1387750409}
+  - {fileID: 887990379}
+  _score: {fileID: 1720996642}
 --- !u!1 &474177018
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +429,7 @@ GameObject:
   - component: {fileID: 573134537}
   - component: {fileID: 573134536}
   - component: {fileID: 573134535}
+  - component: {fileID: 573134540}
   m_Layer: 0
   m_Name: Cart
   m_TagString: Untagged
@@ -541,6 +564,19 @@ Transform:
   m_Father: {fileID: 97082190}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &573134540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573134534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3493d59b58dc1974d9b5035cedc8d277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fruitChanger: {fileID: 465021589}
 --- !u!1 &795470300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1273,7 +1309,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
