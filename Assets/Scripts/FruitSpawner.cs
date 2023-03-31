@@ -11,12 +11,22 @@ public class FruitSpawner : MonoBehaviour
     [Header("Other")]
     [SerializeField] private GameObject _spawnParent;
 
+    [Header("Limits")]
+    private int _leftEdge, _rightEdge;
+    [SerializeField] private GameObject _leftBarrier;
+    [SerializeField] private GameObject _rightBarrier;
+
     private float _currentSpeed;
 
     private void Awake()
     {
         if (_startSpeed == 0f) _startSpeed = 1f;
         _currentSpeed = _startSpeed;
+
+        _leftEdge = (int)_leftBarrier.GetComponent<RectTransform>().rect.width + (int)_fruits[0].GetComponent<RectTransform>().rect.width * 4;
+        _rightEdge = Screen.width - (int)_rightBarrier.GetComponent<RectTransform>().rect.width - (int)_fruits[0].GetComponent<RectTransform>().rect.width * 4;
+        Debug.Log(_leftEdge);
+        Debug.Log(_rightEdge);
     }
 
     private void Start()
@@ -28,10 +38,10 @@ public class FruitSpawner : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Enabled coroutine");
+            Debug.Log("Preparing for spawn");
             GameObject randomFruit = _fruits[Random.Range(0, _fruits.Length)];
-            Vector3 randomPosition = new Vector3(0, 0, 0);// здесь нужны взять размер экрана и у него взять рандомную точку.
-            Instantiate(randomFruit, randomPosition, Quaternion.identity, this.transform);
+            Debug.Log($"Between {_leftEdge} and {_rightEdge}");
+            Instantiate(randomFruit, new Vector3(Random.Range(_leftEdge, _rightEdge), Screen.height, 0), Quaternion.identity, _spawnParent.transform);
             yield return new WaitForSeconds(1f); // Здесь какой-то коэф выставить
         }
     }
