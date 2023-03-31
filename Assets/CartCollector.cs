@@ -9,7 +9,12 @@ public class CartCollector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Fruit"))
         {
-            _fruitChanger.CollectFruit(collision.gameObject.GetComponent<SpriteRenderer>().sprite);
+            bool destroy = false;
+            _fruitChanger.CollectFruit(collision.gameObject.GetComponent<SpriteRenderer>().sprite, out destroy);
+            if (destroy)
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
