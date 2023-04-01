@@ -28,7 +28,7 @@ public class FruitChanger : MonoBehaviour
         {
             if (_currentFruits[i].sprite == collectedFruit && !_collected[i])
             {
-                _currentFruits[i].color = new Color(_currentFruits[i].color.r, _currentFruits[i].color.g, _currentFruits[i].color.b, 255);
+                _currentFruits[i].color = new Color(_currentFruits[i].color.r, _currentFruits[i].color.g, _currentFruits[i].color.b, 1);
                 _spots[i].sprite = collectedFruit;
                 _collected[i] = true;
                 added = true;
@@ -64,7 +64,7 @@ public class FruitChanger : MonoBehaviour
         }
         for (int i = 0; i < _currentFruits.Length; i++)
         {
-            _currentFruits[i].color = new Color(_currentFruits[i].color.r, _currentFruits[i].color.g, _currentFruits[i].color.b, 0.1f);
+            _currentFruits[i].color = new Color(_currentFruits[i].color.r, _currentFruits[i].color.g, _currentFruits[i].color.b, 0.4f);
             _currentFruits[i].sprite = _allFruits[UnityEngine.Random.Range(0, _allFruits.Length)];
         }
     }
