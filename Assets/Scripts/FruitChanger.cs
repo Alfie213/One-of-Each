@@ -13,6 +13,8 @@ public class FruitChanger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _score;
 
     private bool[] _collected;
+    public bool[] Collected => _collected;
+    [HideInInspector] public SpriteRenderer[] CurrentFruits => _currentFruits;
 
     private void Awake()
     {
