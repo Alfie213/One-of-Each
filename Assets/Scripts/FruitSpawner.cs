@@ -16,27 +16,43 @@ public class FruitSpawner : MonoBehaviour
     [SerializeField] private float _rightPoint;
 
     private float _currentSpeed;
+    public int CountOfFruits { get; private set; }
 
     private void Awake()
     {
         if (_startSpeed == 0f) _startSpeed = 2f;
         _currentSpeed = _startSpeed;
+        CountOfFruits = 3;
     }
 
     private void Start()
     {
         StartCoroutine(Spawner());
+        StartCoroutine(MoreFruits());
     }
 
     private IEnumerator Spawner()
     {
         while (true)
         {
-            GameObject randomFruit = _fruits[Random.Range(0, _fruits.Length)];
+            GameObject randomFruit = _fruits[Random.Range(0, CountOfFruits)];
             Instantiate(randomFruit, new Vector3(Random.Range(_leftPoint, _rightPoint), 6, 0), Quaternion.identity, _spawnParent.transform);
             _currentSpeed -= Time.timeScale * 0.05f;
-            if (_currentSpeed < 0.3f) _currentSpeed = 0.3f;
+            if (_currentSpeed < 0.5f) _currentSpeed = 0.5f;
             yield return new WaitForSeconds(_currentSpeed);
+        }
+    }
+
+    private IEnumerator MoreFruits()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(20f);
+            if (!(CountOfFruits == 5))
+            {
+                CountOfFruits++;
+                Debug.Log("Increased");
+            }
         }
     }
 }

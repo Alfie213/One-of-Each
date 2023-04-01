@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [Header("Health Settings")]
     [SerializeField] private int _startHealth;
     [SerializeField] private GameObject _heartPrefab;
     [SerializeField] private GameObject _template;
+
+    [Header("Cart Components")]
+    [SerializeField] private CartMovement _cartMovement;
+    [SerializeField] private Collider2D _cartCollider;
 
     private int _currentHealth;
 
@@ -33,6 +38,8 @@ public class Health : MonoBehaviour
 
     private void Death()
     {
+        _cartMovement.enabled = false;
+        _cartCollider.enabled = false;
         _template.SetActive(true);
     }
 }

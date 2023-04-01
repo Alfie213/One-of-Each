@@ -8,6 +8,7 @@ public class FruitChanger : MonoBehaviour
     [SerializeField] private Sprite[] _allFruits;
     [SerializeField] private SpriteRenderer[] _currentFruits;
     [SerializeField] private SpriteRenderer[] _spots;
+    [SerializeField] private FruitSpawner _fruitSpawner;
 
     [Header("Score")]
     [SerializeField] private TextMeshProUGUI _score;
@@ -67,7 +68,7 @@ public class FruitChanger : MonoBehaviour
         for (int i = 0; i < _currentFruits.Length; i++)
         {
             _currentFruits[i].color = new Color(_currentFruits[i].color.r, _currentFruits[i].color.g, _currentFruits[i].color.b, 0.4f);
-            _currentFruits[i].sprite = _allFruits[UnityEngine.Random.Range(0, _allFruits.Length)];
+            _currentFruits[i].sprite = _allFruits[UnityEngine.Random.Range(0, _fruitSpawner.CountOfFruits)];
         }
     }
 }

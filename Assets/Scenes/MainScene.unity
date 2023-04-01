@@ -1080,6 +1080,8 @@ MonoBehaviour:
   - {fileID: 2943342427468688787, guid: 1ad1eb82f2ec24a41b909adabef881fd, type: 3}
   - {fileID: 8391663076157693805, guid: 065dc6e6363a49341a26d35dc5e0d32e, type: 3}
   - {fileID: 2151825793064879890, guid: 26510d8bd519ba74cbdb6d28dced60b2, type: 3}
+  - {fileID: 2151825793064879890, guid: c63d1569870f0ed4b83aff595382276c, type: 3}
+  - {fileID: 2151825793064879890, guid: 783906fd853e70341a241c078e00bcea, type: 3}
   _spawnParent: {fileID: 1865088351}
   _leftPoint: -4.4
   _rightPoint: 4.4
@@ -1114,6 +1116,8 @@ MonoBehaviour:
   - {fileID: 538094594, guid: 512e01c290a83644d9618f7e77ab656a, type: 3}
   - {fileID: 2010883626, guid: 512e01c290a83644d9618f7e77ab656a, type: 3}
   - {fileID: 568188542, guid: 512e01c290a83644d9618f7e77ab656a, type: 3}
+  - {fileID: -750717311, guid: 512e01c290a83644d9618f7e77ab656a, type: 3}
+  - {fileID: 1422386616, guid: 512e01c290a83644d9618f7e77ab656a, type: 3}
   _currentFruits:
   - {fileID: 1229724225}
   - {fileID: 1387750409}
@@ -1122,6 +1126,7 @@ MonoBehaviour:
   - {fileID: 859748296}
   - {fileID: 2077683017}
   - {fileID: 1396036296}
+  _fruitSpawner: {fileID: 465021587}
   _score: {fileID: 1720996642}
 --- !u!114 &465021590
 MonoBehaviour:
@@ -3781,6 +3786,8 @@ MonoBehaviour:
   _startHealth: 0
   _heartPrefab: {fileID: 934588989881657877, guid: 31ad0d85af7291642a6dc68164e44dc7, type: 3}
   _template: {fileID: 388775749}
+  _cartMovement: {fileID: 573134535}
+  _cartCollider: {fileID: 573134536}
 --- !u!1 &1720909790
 GameObject:
   m_ObjectHideFlags: 0
