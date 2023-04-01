@@ -19,7 +19,7 @@ public class FruitSpawner : MonoBehaviour
 
     private void Awake()
     {
-        if (_startSpeed == 0f) _startSpeed = 1f;
+        if (_startSpeed == 0f) _startSpeed = 2f;
         _currentSpeed = _startSpeed;
     }
 
@@ -32,14 +32,11 @@ public class FruitSpawner : MonoBehaviour
     {
         while (true)
         {
-            //Debug.Log("Preparing for spawn");
             GameObject randomFruit = _fruits[Random.Range(0, _fruits.Length)];
-            //Debug.Log($"Between {_leftPoint} and {_rightPoint}");
             Instantiate(randomFruit, new Vector3(Random.Range(_leftPoint, _rightPoint), 6, 0), Quaternion.identity, _spawnParent.transform);
-            //Instantiate(randomFruit, new Vector3(_leftPoint, 6, 0), Quaternion.identity, _spawnParent.transform);
-            //Instantiate(randomFruit, new Vector3(_rightPoint, 6, 0), Quaternion.identity, _spawnParent.transform);
-
-            yield return new WaitForSeconds(1f); // Здесь какой-то коэф выставить
+            _currentSpeed -= Time.timeScale * 0.05f;
+            if (_currentSpeed < 0.3f) _currentSpeed = 0.3f;
+            yield return new WaitForSeconds(_currentSpeed);
         }
     }
 }
