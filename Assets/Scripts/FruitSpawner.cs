@@ -55,4 +55,12 @@ public class FruitSpawner : MonoBehaviour
             }
         }
     }
+
+    public void ClearInstantiatedFruits()
+    {
+        for (int i = 0; i < _spawnParent.transform.childCount; i++)
+        {
+            Destroy(_spawnParent.transform.GetChild(0).gameObject);
+        }
+    }
 }

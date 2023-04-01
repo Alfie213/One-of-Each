@@ -61,6 +61,7 @@ public class FruitChanger : MonoBehaviour
 
     private void UpdateFruits()
     {
+        _fruitSpawner.ClearInstantiatedFruits();
         for (int i = 0; i < _collected.Length; i++)
         {
             _collected[i] = false;
