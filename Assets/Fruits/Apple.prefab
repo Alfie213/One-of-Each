@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2943342427468688788}
   - component: {fileID: 2943342427468688789}
   - component: {fileID: 2943342427468688786}
-  - component: {fileID: -2779815002837178026}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Fruit
@@ -134,15 +133,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.88038, y: 11.23}
   m_EdgeRadius: 0
---- !u!114 &-2779815002837178026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2943342427468688787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b667d66934f944438bb24be90284b54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
