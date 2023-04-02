@@ -65,7 +65,7 @@ public class FruitSpawner : MonoBehaviour
         StopCoroutine(_spawnerRoutine);
         for (int i = 0; i < _spawnParent.transform.childCount; i++)
         {
-            Destroy(_spawnParent.transform.GetChild(0).gameObject);
+            Destroy(_spawnParent.transform.GetChild(i).gameObject);
         }
         StartCoroutine(_spawnerRoutine);
     }
