@@ -16,6 +16,9 @@ public class FruitSpawner : MonoBehaviour
     [SerializeField] private float _rightPoint;
 
     private float _currentSpeed;
+
+    private IEnumerator _spawnerRoutine;
+
     public int CountOfFruits { get; private set; }
 
     private void Awake()
@@ -23,11 +26,12 @@ public class FruitSpawner : MonoBehaviour
         if (_startSpeed == 0f) _startSpeed = 2f;
         _currentSpeed = _startSpeed;
         CountOfFruits = 3;
+
+        _spawnerRoutine = Spawner();
     }
 
     private void Start()
     {
-        StartCoroutine(Spawner());
         StartCoroutine(MoreFruits());
     }
 
@@ -58,9 +62,11 @@ public class FruitSpawner : MonoBehaviour
 
     public void ClearInstantiatedFruits()
     {
+        StopCoroutine(_spawnerRoutine);
         for (int i = 0; i < _spawnParent.transform.childCount; i++)
         {
             Destroy(_spawnParent.transform.GetChild(0).gameObject);
         }
+        StartCoroutine(_spawnerRoutine);
     }
 }
