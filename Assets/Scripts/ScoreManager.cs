@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Awake()
     {
-        _bestScore.text = $"Best Score: {_data.BestScore}";
+        _bestScore.text = $"Best: {_data.BestScore}";
     }
 
     public void UpdateBestScore()

@@ -13,6 +13,9 @@ public class Health : MonoBehaviour
     [SerializeField] private CartMovement _cartMovement;
     [SerializeField] private Collider2D _cartCollider;
 
+    [Header("ScoreManager")]
+    [SerializeField] private ScoreManager _scoreManager;
+
     private int _currentHealth;
 
     private void Awake()
@@ -41,5 +44,6 @@ public class Health : MonoBehaviour
         _cartMovement.enabled = false;
         _cartCollider.enabled = false;
         _template.SetActive(true);
+        _scoreManager.UpdateBestScore();
     }
 }

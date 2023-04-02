@@ -16,7 +16,7 @@ public class PauseButton : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Exit()
+    public void MainMenu()
     {
         _scoreManager.UpdateBestScore();
         SceneManager.LoadScene("MenuScene");
